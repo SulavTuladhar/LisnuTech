@@ -1,0 +1,111 @@
+
+.dashboard-container{
+    height: 92vh;
+    width: 100vw;
+    display: flex;
+    overflow-x: hidden;
+}
+.product-container{
+    width: 65vw;
+    height: 100%;
+    padding-top: 1rem;
+}
+.tags-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: 7vh;
+}
+.day,
+.tags{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.day{
+    width: 20%;
+    margin-left: -1rem;
+    padding-left: 1rem;
+}
+.day h2{
+    font-size: xx-large;
+    font-weight: normal;
+}
+.tags{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #fafafa;
+    height: 100%;
+    width: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    box-shadow:  4px 4px 8px #f3f3f3,
+             -2px 2px 8px #ffffff;
+    transition: all 0.3s;
+}
+.tags:hover{
+    box-shadow: 10px 10px 8px rgb(235, 232, 232);
+}
+.tags img{
+    margin-right: 4px;
+}
+.drinks{
+    margin-top: -4px;
+}
+.add-product{
+    width: 35vw;
+    height: 100%;
+    border-left: 2px solid  #f6f6f8;
+}
+.product-content{
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-left: 2rem;
+}
+.product-description{
+    background-color: rgba(253, 253, 253, 0.767);
+    width: 15rem;
+    height: 22rem;
+    padding: 0 1rem;
+    text-align: center;
+    border: 1px solid rgb(245, 245, 245);
+    border-radius: 1.4rem;
+    box-shadow:  4px 4px 8px #f3f3f3,
+             -2px 2px 8px #ffffff;
+    transition: all 0.3s;
+}
+.product-description img{
+    width: 12rem;
+}
+.product-description p{
+    margin-top: 4px;
+    font-size: smaller;
+    font-weight: lighter;
+    color: rgb(43, 39, 39);
+}
+.product-description span{
+    margin-top: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.see-more-btn{
+    background-color: #fff;
+    width: 6rem;
+    height: 2rem;
+    border:  2px solid #fce3ba;
+    border-radius: 1rem;
+}
+.product-description:hover{
+    box-shadow: 10px 10px 8px rgb(235, 232, 232);
+}
+.product-description:hover .see-more-btn{
+    background-color: #fce3ba;
+
+}

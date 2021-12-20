@@ -1,0 +1,265 @@
+.main-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fffcf9;
+}
+
+/*  Hero-conatiner  */
+.hero-container{
+    height: 100vh;
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.content{
+    width: 40%;
+    /* font-weight: lighter; */
+}
+.title{
+    font-family: 'Kalam', cursive;
+}
+.content h5{
+    margin-top: 4vh;
+    font-weight: lighter;
+    color: rgb(43, 39, 39);
+}
+.img-sec{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.img-sec img{
+    width: 60%;
+    z-index: 1;
+}
+.circle{
+    position: absolute;
+    right: 2rem;
+    background-color: #fff6e7;
+    height: 90%;
+    width: 80%;
+    border-radius: 50%;
+}
+.hero-container button{
+    margin-top: 4vh;
+     background-color: #fce3ba;
+     border: 1px solid #fce3ba;
+     height: 2.4rem;
+     width: 7.8rem;
+     border-radius: 2rem;
+     position: relative;
+}
+.search-btn{
+    background-color: #fff;
+    margin-left: 1vw;
+    padding-left: 0.8rem;
+}
+.search-img{
+    width: 20px;
+    position: absolute;
+    left: 1.4rem;
+}
+.hero-container button:hover{
+    background-color: #fff;
+}
+.search-btn:hover{
+    background-color: #fce3ba;
+}
+.side-menu{
+    position: absolute;
+    height: 6vh;
+    width: 9vw;
+    right: 0;
+    border-radius: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 2px 8px rgb(235, 232, 232);
+}
+.side-menu:hover{
+    box-shadow: 8px 8px 8px rgb(235, 232, 232);
+
+}
+.one{
+    top: 7rem;
+}
+.two{
+    top:11rem;
+}
+.three{
+    top: 15rem;
+}
+.four{
+    top: 19rem
+}
+.side-img{
+    height: 2.2rem;
+    object-fit: contain;
+    margin: -2px 0 0 -6px;
+}
+.two img{
+    margin-left:-10px;
+    margin-right: 4px;
+}
+.side-top{
+    height: 2.8rem;
+}
+.side-menu p{
+    font-size: small;
+    margin-left: -6px;
+}
+
+/************* Second Page ************************/
+.second-page{
+    height: 70vh;
+    width: 88%;
+}
+.page-heading{
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.two-btns{
+    width: 4.4rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.arrow{
+    background-color: #fff;
+    border: 2px solid #fce3ba;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+.right{
+    background-color: #fce3ba;
+}
+.menu-description-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.menu-description,
+.chef-description{
+    background-color: rgba(253, 253, 253, 0.767);
+    width: 15rem;
+    height: 22rem;
+    padding: 0 1rem;
+    text-align: center;
+    border: 1px solid rgb(245, 245, 245);
+    border-radius: 1.4rem;
+    box-shadow:  4px 4px 8px #f3f3f3,
+             -2px 2px 8px #ffffff;
+}
+.menu-description{
+    transition: all 0.3s;
+}
+.menu-description img{
+    width: 12rem;
+}
+.menu-description p{
+    margin-top: 4px;
+    font-size: smaller;
+    font-weight: lighter;
+    color: rgb(43, 39, 39);
+}
+.menu-description span{
+    margin-top: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.see-more-btn{
+    background-color: #fff;
+    width: 6rem;
+    height: 2rem;
+    border:  2px solid #fce3ba;
+    border-radius: 1rem;
+}
+.menu-description:hover{
+    box-shadow: 10px 10px 8px rgb(235, 232, 232);
+}
+.menu-description:hover .see-more-btn{
+    background-color: #fce3ba;
+
+}
+
+/************* Third Page  ********************/
+.third-page{
+    height: 100vh;
+    width: 88%;
+    display: flex;
+    align-items: center;
+}
+.img-div{
+    width: 50%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chief-img{
+    width: 20rem;
+}
+.side-div{
+    width: 50%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 4rem 0 0 ;
+}
+.features-container{
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-template-rows: 5rem 5rem;
+    margin-top: 2rem;
+}
+.features{
+    height: 8vh;
+    width: 14vw;
+    border-radius: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    box-shadow: 1px 2px 8px rgb(235, 232, 232);
+}
+.description{
+    font-weight: lighter;
+    color: rgb(43, 39, 39);
+}
+.features img{
+    height: 2.2rem;
+    object-fit: contain;
+}
+.features p{
+    font-size: small;
+    margin-left: 1rem;
+}
+.features:hover{
+    box-shadow: 8px 8px 8px rgb(235, 232, 232);
+}
+
+/***** Fourth Page **********/
+.fourth-page{
+    width: 88%;
+    height: 100vh;
+}
+.chef-description-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.chef-description img{
+    width: 12rem;
+}
