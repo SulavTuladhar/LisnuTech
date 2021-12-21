@@ -14,7 +14,6 @@ export class Dashboard extends Component {
   render() {
     return (
       <>
-        <Header isLoggedIn />
       
         {/* Dashboard Page */}
         <div className="dashboard-container">

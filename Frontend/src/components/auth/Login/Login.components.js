@@ -1,10 +1,11 @@
 import React from "react";
 import { Component } from "react";
-import { Link } from "react-router-dom";
 import { AuthHeader } from "../../common/auth.header/auth.header.components";
 import { notify } from "../../../utils/toaster";
 
 import './Login.components.css'
+import { httpClient } from "../../../utils/httpClient";
+import { handleError } from "../../../utils/errorHandler";
 // Class based Components
 
 const defaultForm = {
@@ -37,16 +38,22 @@ export class Login extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        notify.showInfo('clicked')
         let isValidForm = this.validateForm()
         if (!isValidForm) return;
-
         // API CALL
-        setTimeout(()=>{
-            // Setting up localstorage
-            localStorage.setItem('remember_me', JSON.stringify(this.state.remember_me));
-            this.props.history.push('/dashboard');
-        }, 2000)
+        httpClient.POST(`/auth/login`, this.state.data)
+            .then((response)=>{
+                notify.showSucess(`Welcome ${response.data.user.username}`);
+                // Local storage setup
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+                localStorage.setItem('remember_me', this.state.remember_me);
+                // Navigating to dashboard
+                this.props.history.push('/dashboard');
+            })
+            .catch(err=>{
+                handleError(err); 
+            })
     }
 
     handleChange = (e)=>{

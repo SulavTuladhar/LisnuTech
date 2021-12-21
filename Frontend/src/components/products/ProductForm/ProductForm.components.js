@@ -52,7 +52,6 @@ export default class ProductForm extends Component {
         return (
 
           <div className="add-product-container">
-              <Header isLoggedIn />
               <div className="add-product-content">
                 <img src='./images/cross.svg' className='close-btn' alt='cross-icon' />
                 <h2> {this.props.title} </h2> 

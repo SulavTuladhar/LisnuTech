@@ -1,5 +1,8 @@
 import React from "react";
 import { Component } from "react";
+import { handleError } from "../../../utils/errorHandler";
+import { httpClient } from "../../../utils/httpClient";
+import { notify } from "../../../utils/toaster";
 import './Register.components.css';
 
 const defaultForm = {
@@ -53,7 +56,14 @@ export class Register extends Component{
         this.setState({
             isSubmitting: true
         })
-        
+        httpClient.POST(`/auth/register`, this.state.data)
+            .then((res)=>{
+                notify.showInfo('Registration sucessfull !!')
+                this.props.history.push('/login')
+            })
+            .catch(err=>{
+                handleError(err)
+            })
     }
 
     onChange = (e) =>{
