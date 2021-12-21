@@ -1,15 +1,21 @@
 /* functional component */
 import './Header.components.css';
+import { withRouter } from 'react-router-dom';
 
-export const Header = (props)=>{
+const logout = (history) =>{
+    // Clearning Local storage
+    localStorage.clear();
+    history.push('/login')
+    // Navigate to Loginpage
+}
+
+const HeaderComponent = (props)=>{
     console.log('props is >>', props)
     let content = props.isLoggedIn
-        ?   <ul className="nav-list">
-                <li className="nav-item">About Us</li>
-                <li className="nav-item">Menu</li>
-                <li className="nav-item">Contacts</li>
-                <li className="nav-item">Add </li>
-                <li className="nav-item">Logout</li>
+        ?   <ul className="nav-list-loggedIn">
+                <li className="nav-loggedIn-item right-border"><img src='./images/Home.svg' alt='home-icon' className='svg-icon' /></li>
+                <h3 className="logo"> Chatta Mitho </h3> 
+                <li className="nav-loggedIn-item left-border" > <img src='./images/logout.svg' onClick={()=>logout(props.history)} alt='logout-icon' className='svg-icon logout' /> </li>
             </ul>
         :   <ul className="nav-list">
                 <li className="nav-logo"><h3 className="logo"> Chatta Mitho </h3> </li>
@@ -27,3 +33,5 @@ export const Header = (props)=>{
         </div>
     )
 }
+
+export const Header = withRouter(HeaderComponent) 

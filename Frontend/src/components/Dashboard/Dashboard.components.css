@@ -6,15 +6,21 @@
     overflow-x: hidden;
 }
 .product-container{
-    width: 65vw;
+    width: 100%;
     height: 100%;
     padding-top: 1rem;
 }
 .tags-container{
     display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.tags-wrapper{
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
+    width: 90vw;
     height: 7vh;
 }
 .day,
@@ -56,17 +62,13 @@
 .drinks{
     margin-top: -4px;
 }
-.add-product{
-    width: 35vw;
-    height: 100%;
-    border-left: 2px solid  #f6f6f8;
-}
+
 .product-content{
     margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    padding-left: 2rem;
+    gap: 84px;
+    padding-left: 4rem;
 }
 .product-description{
     background-color: rgba(253, 253, 253, 0.767);
@@ -83,6 +85,44 @@
 .product-description img{
     width: 12rem;
 }
+/* Add product div  */
+.add-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add-icon{
+    height: 6rem;
+    margin-top: 3rem;
+}
+.title-div{
+    height: 1.4rem;
+    width: 10rem;
+    background-color: #f4f4f4;
+    margin-top: 2rem;
+}
+.details-div{
+    background-color: #f4f4f4;
+    height: 0.8rem;
+    width: 13rem;
+    margin-top: 1rem;
+}
+.price-div{
+    background-color: #f4f4f4;
+    height: 1rem;
+    width: 3rem;
+}
+.loader{
+    background-color: #470303;
+}
+.btn-div{
+    background-color: #f4f4f4;
+    height: 2rem;
+    width: 6rem;
+    border-radius: 1rem;
+    margin-left: 2.6rem;
+}
+/*  */
 .product-description p{
     margin-top: 4px;
     font-size: smaller;

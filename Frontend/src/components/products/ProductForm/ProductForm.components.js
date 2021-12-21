@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Header } from '../../common/header/Header.components';
 import { SubmitBtn } from '../../common/submitBtn/SubmitBtn.components';
 
 import './ProductForm.components.css'
@@ -49,10 +50,15 @@ export default class ProductForm extends Component {
 
     render() {
         return (
-            <div className="add-product-container">
+
+          <div className="add-product-container">
+              <Header isLoggedIn />
               <div className="add-product-content">
+                <img src='./images/cross.svg' className='close-btn' alt='cross-icon' />
                 <h2> {this.props.title} </h2> 
                   <p className="add-product-description"> To add products, all you need is a name, description and price. </p>
+                
+                
                 <form className="add-form" onSubmit={this.onSubmit} noValidate>
                   <label htmlfor="name"> Name  </label>
                   <input type="text" name="name" id="name" onChange={this.handleChange} />
