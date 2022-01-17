@@ -9,22 +9,6 @@
     height: 100%;
     display: flex;
 }
-.nav-list{
-    align-items: center;
-    width: 90vw;
-    justify-content: space-between;
-}
-.nav-item{
-    padding: 10px;
-    color: #000;
-}
-.nav-item:hover{
-    color: blue;
-    cursor: pointer;
-}
-.side-nav{
-    display: flex;
-}
 
 /* For logged In  */
 .nav-list-loggedIn{
@@ -55,4 +39,36 @@
 }
 .left-border{
     border-left: 2px solid #f6f6f8 ;
+}
+.username{
+    font-family: "Libre Baskerville", serif;
+    font-size: 15px;
+    color: #2e2e2e;
+}
+
+.loggedInNavBar{
+    background: white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.bar{
+    height: 0.313rem;
+    width: 100%;
+    background-color: #fff;
+    display: block;
+    border-radius: 0.313rem;
+    transition: 0.3s ease;  
+}
+#bar1{
+    transform:translateY(-4px);
+}
+#bar3{
+    transform:translateY(4px);
+}
+.bg-color{
+    background: rgba(0, 0, 0, 0.89);
+}
+.text-color{
+    color: #fff;
 }

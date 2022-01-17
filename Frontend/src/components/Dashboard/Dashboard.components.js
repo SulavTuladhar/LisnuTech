@@ -1,91 +1,17 @@
-import React from "react";
-import { Component } from "react";
-import { Header } from "../common/header/Header.components";
-
-import './Dashboard.components.css'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export class Dashboard extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-
-  render() {
-    return (
-      <>
-      
-        {/* Dashboard Page */}
-        <div className="dashboard-container">
-            <div className="product-container">
-                <div className="tags-container">
-                    <div className="tags-wrapper">
-                      <div className="day"> <h2> Monday </h2> </div>
-                      <div className="tags"> <img src="/images/spoon-and-fork.png" alt="spoon-and-fork" /> Dishes </div>
-                      <div className="tags"> <img src="/images/soda.png" className="drinks" alt="soda-img" />  Drinks </div>
-                      <div className="tags"> <img src="/images/nachos.png" alt="nachos-img" /> Snacks </div>
-                      <div className="tags"> <img src="./images/cupcake.png" alt="cupcake-img"/> Dessert </div>
-                    </div>
-                </div>
-                
-                <div className="product-content">
-
-                <div className="product-description add-description"> 
-                        <img src="/images/plus.svg" className="add-icon" alt="add-icon" /> 
-                        <div className="title-div"> </div>
-                        <div className="details-div"> </div>
-                        <div className="details-div"> </div>
-                        <span> 
-                            <div className="price-div"> </div>
-                            <div className="btn-div"></div>
-                        </span>
-              </div>
-
-                <div className="product-description"> 
-                        <img src="/images/burger.png" alt="burger-img" /> 
-                        <h3 className="title"> Burger </h3>
-                        <p> Our burgers offer a combination of tastes and textures – sweet, sour, salt – with a bit of crunch.</p>
-                        <span> 
-                            <h5> 150 </h5> 
-                            <button className="see-more-btn"> See More </button>
-                        </span>
-              </div>
-
-              <div className="product-description"> 
-                        <img src="/images/momo.png" alt="burger-img" /> <br /> 
-                        <h3 className="title"> Momo </h3>
-                        <p> Our burgers offer a combination of tastes and textures – sweet, sour, salt – with a bit of crunch.</p>
-                        <span> 
-                            <h5> 150 </h5> 
-                            <button className="see-more-btn"> See More </button>
-                        </span>
-              </div>
-
-              <div className="product-description"> 
-                        <img src="/images/drink.png" alt="burger-img" />  <br /> <br />
-                        <h3 className="title"> Drink </h3>
-                        <p> Our burgers offer a combination of tastes and textures – sweet, sour, salt – with a bit of crunch.</p>
-                        <span> 
-                            <h5> 150 </h5> 
-                            <button className="see-more-btn"> See More </button>
-                        </span>
-              </div>
-
-              <div className="product-description"> 
-                        <img src="/images/pizza.png" alt="burger-img" /> 
-                        <h3 className="title"> Pizza </h3>
-                        <p> Our burgers offer a combination of tastes and textures – sweet, sour, salt – with a bit of crunch.</p>
-                        <span> 
-                            <h5> 150 </h5> 
-                            <button className="see-more-btn"> See More </button>
-                        </span>
-              </div>
-
-              
-                </div>
-            </div>
-        </div>
-      </>
-    );
-  }
+    render() {
+        return (
+            <section className='mt-5'>
+                <h1><Link to="/edit-home">  EDIT HOME PAGE </Link> </h1>
+                <h1><Link to="/editSocialMedia">  EDIT SOCIAL MEDIA MANAGEMENT PAGE </Link> </h1>
+                <h1><Link to="/editWebDevelopment">  EDIT WEB DESIGN AND DEVELOPMENT </Link> </h1>
+                <h1><Link to="/editDigitalMarketing">  EDIT DIGITAL MARKETING </Link> </h1>
+                <h1><Link to="/graphicsDesign">  EDIT GRAPHICS DESIGN </Link> </h1>
+                <h1><Link to="/editBlog">  EDIT BLOG </Link> </h1>
+            </section>
+        )
+    }
 }

@@ -1,6 +1,6 @@
 /* functional component */
 import './Header.components.css';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const logout = (history) =>{
     // Clearning Local storage
@@ -10,21 +10,74 @@ const logout = (history) =>{
 }
 
 const HeaderComponent = (props)=>{
+    const currentUser = JSON.parse(localStorage.getItem('user'))
     console.log('props is >>', props)
     let content = props.isLoggedIn
-        ?   <ul className="nav-list-loggedIn">
-                <li className="nav-loggedIn-item right-border"><img src='./images/Home.svg' alt='home-icon' className='svg-icon' /></li>
-                <h3 className="logo"> Chatta Mitho </h3> 
-                <li className="nav-loggedIn-item left-border" > <img src='./images/logout.svg' onClick={()=>logout(props.history)} alt='logout-icon' className='svg-icon logout' /> </li>
-            </ul>
-        :   <ul className="nav-list">
-                <li className="nav-logo"><h3 className="logo"> Chatta Mitho </h3> </li>
-                <div className="side-nav">
-                <li className="nav-item">About us</li>
-                <li className="nav-item">Menu</li>
-                <li className="nav-item">Contacts</li>
+        ?  <nav className="navbar bg-color pt-4 pb-4 loggedInNavBar" style={{zIndex: "1000", position: "fixed", width: '100vw'}}>
+                <div className='container'>
+                    <img src='./../images/logo.png' />
+                    <button
+                                    className="navbar-toggler"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#navmenu"
+                                    style={{outline: 'none'}}
+                                >
+                                    <span className="navbar-toggler-icon p-fixed"> 
+                                        <div id="bar1" class="bar"></div>
+                                        <div id="bar2" class="bar"></div>
+                                        <div id="bar3" class="bar"></div>
+                                    </span>
+                                </button>       
+                    <div className="collapse navbar-collapse" id='navmenu'>
+                        <ul className="navbar-nav d-flex align-items-center pt-5">
+                                <li className="nav-item text-color mb-3"> <h2> Hi, {currentUser.username} </h2> </li>
+                                <li className="nav-item text-color mb-3">Home</li>
+                                <li className="nav-item text-color mb-3">Projects</li>
+                                <li className="nav-item text-color mb-3">Social Media Management</li>
+                                <li className="nav-item text-color mb-3">WEb Design & Development</li>
+                                <li className="nav-item text-color mb-3">Digital Marketing</li>
+                                <li className="nav-item text-color mb-3">Graphics Design</li>
+                                <li className="nav-item text-color mb-3">Blog</li>
+                                <li className="nav-item text-color mb-5">Contact Us</li>
+                                <li className="nav-item text-color mb-5" style={{cursor: 'pointer'}} onClick={()=>{logout(props.history)}}>Logout</li>
+                        </ul> 
+                            </div>
                 </div>
-            </ul>
+
+        </nav>
+        :   <nav className="navbar pt-4 pb-4 bg-color position-fixed container-fluid" style={{zIndex: '1000'}}>
+                <div className='container'>
+                    <img src='./images/logo.png' />
+                                <button
+                                    className="navbar-toggler"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#navmenu"
+                                >
+                                    <span className="navbar-toggler-icon p-fixed"> 
+                                        <div id="bar1" class="bar"></div>
+                                        <div id="bar2" class="bar"></div>
+                                        <div id="bar3" class="bar"></div>
+                                    </span>
+                                </button>
+                    <div className="collapse navbar-collapse" id='navmenu'>
+                        <ul className="navbar-nav d-flex align-items-center pt-5 pb-5">
+                        <li className="nav-item mb-3"> <Link className='text-color' to="/"> Home </Link> </li>
+                                <li className="nav-item mb-3"> <Link className='text-color' to="/project"> Projects </Link></li>
+                                <li className="nav-item mb-3"><Link className='text-color' to="/socialMediaManagement">Social Media Management </Link></li>
+                                <li className="nav-item mb-3"><Link className='text-color' to="/webDevelopment"> Web Design & Development </Link> </li>
+                                <li className="nav-item mb-3"><Link className='text-color' to="/digitalmarketing"> Digital Marketing </Link> </li>
+                                <li className="nav-item mb-3"><Link className='text-color' to="/graphicsDesign"> Graphics Design </Link> </li>
+                                <li className="nav-item mb-3"><Link className='text-color' to="/blog"> Blog </Link></li>
+                                <li className="nav-item mb-3"><Link className='text-color' to="/contact"> Contact Us </Link> </li>
+                        </ul> 
+                            </div>
+                            
+                </div>
+
+            </nav>   
+       
     return(
         <div className="nav-bar">
 
