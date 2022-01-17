@@ -1,8 +1,10 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
+const path = require('path');
+const cors = require('cors');
 const PORT = 9090;
 require('./db._init');
+
 
 // Import api router
 const API_ROUTER = require('./api.route');
@@ -20,14 +22,14 @@ app.use(express.urlencoded({ // Parser for x-ww-form-urlencoded
     extended: true
 }));
 app.use(express.json()); //JSON parser
-app.use('/files', express.static('uploads'));
+app.use('/files', express.static(path.join(process.cwd(), 'uploads')));
 
 app.use('/api', API_ROUTER);
 
 //404 error handler
 app.use(function(req,res,next){
     next({
-        msg: "Not Found",
+        msg: "Page Not Found",
         status: 404
     })
 })
