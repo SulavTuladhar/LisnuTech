@@ -1,7 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import emailjs from 'emailjs-com';
 
 export class contact extends Component {
     render() {
+        function sendEmail(e){
+            e.preventDefault();
+        
+            emailjs.sendForm("service_ymvhs1r", "template_k1rn6y8", e.target, 'user_P32tRPwXCjkKS9gEFmnSl')
+              .then(res=>{
+                console.log('yayy you did it')
+              })
+              .catch(err=>{
+                console.log('your code is piece of shit ')
+              })
+          }
         return (
             <section>
                 <div className='container d-flex align-items-center justify-content-center'>
@@ -14,7 +26,7 @@ export class contact extends Component {
                         </p>
                         </div>
                        
-                        <form className='form '>
+                        <form className='form ' onSubmit={sendEmail}>
                         <div className='col-12'>
                             <label htmlFor='name'> Name </label>
                             <input type="text" name="name" id="name"  className='form-control'/>
