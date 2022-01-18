@@ -32,14 +32,13 @@ const HeaderComponent = (props)=>{
                     <div className="collapse navbar-collapse" id='navmenu'>
                         <ul className="navbar-nav d-flex align-items-center pt-5">
                                 <li className="nav-item text-color mb-3"> <h2> Hi, {currentUser.username} </h2> </li>
-                                <li className="nav-item text-color mb-3">Home</li>
-                                <li className="nav-item text-color mb-3">Projects</li>
-                                <li className="nav-item text-color mb-3">Social Media Management</li>
-                                <li className="nav-item text-color mb-3">WEb Design & Development</li>
-                                <li className="nav-item text-color mb-3">Digital Marketing</li>
-                                <li className="nav-item text-color mb-3">Graphics Design</li>
-                                <li className="nav-item text-color mb-3">Blog</li>
-                                <li className="nav-item text-color mb-5">Contact Us</li>
+                                <li className="nav-item text-color mb-3"><Link className='text-color' to="/edit-home"> Home </Link> </li>
+                                <li className="nav-item text-color mb-3"><Link className='text-color' to="/editSocialMedia"> Social Media Management </Link></li>
+                                <li className="nav-item text-color mb-3"><Link className='text-color' to="/editWebDevelopment"> WEb Design & Development </Link> </li>
+                                <li className="nav-item text-color mb-3"><Link className='text-color' to="/editdigitalMarketing"> Digital Marketing  </Link> </li>
+                                <li className="nav-item text-color mb-3"><Link className='text-color' to="/editGraphicsDesign"> Graphics Design </Link> </li>
+                                <li className="nav-item text-color mb-3"><Link className='text-color' to="/editBlog"> Blog </Link> </li>
+                                <li className="nav-item text-color mb-5"><Link className='text-color' to="/contact"> Contact Us </Link> </li>
                                 <li className="nav-item text-color mb-5" style={{cursor: 'pointer'}} onClick={()=>{logout(props.history)}}>Logout</li>
                         </ul> 
                             </div>
@@ -64,7 +63,6 @@ const HeaderComponent = (props)=>{
                     <div className="collapse navbar-collapse" id='navmenu'>
                         <ul className="navbar-nav d-flex align-items-center pt-5 pb-5">
                         <li className="nav-item mb-3"> <Link className='text-color' to="/"> Home </Link> </li>
-                                <li className="nav-item mb-3"> <Link className='text-color' to="/project"> Projects </Link></li>
                                 <li className="nav-item mb-3"><Link className='text-color' to="/socialMediaManagement">Social Media Management </Link></li>
                                 <li className="nav-item mb-3"><Link className='text-color' to="/webDevelopment"> Web Design & Development </Link> </li>
                                 <li className="nav-item mb-3"><Link className='text-color' to="/digitalmarketing"> Digital Marketing </Link> </li>

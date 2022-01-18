@@ -9,7 +9,7 @@ export class Dashboard extends Component {
                 <h1><Link to="/editSocialMedia">  EDIT SOCIAL MEDIA MANAGEMENT PAGE </Link> </h1>
                 <h1><Link to="/editWebDevelopment">  EDIT WEB DESIGN AND DEVELOPMENT </Link> </h1>
                 <h1><Link to="/editDigitalMarketing">  EDIT DIGITAL MARKETING </Link> </h1>
-                <h1><Link to="/graphicsDesign">  EDIT GRAPHICS DESIGN </Link> </h1>
+                <h1><Link to="/editGraphicsDesign">  EDIT GRAPHICS DESIGN </Link> </h1>
                 <h1><Link to="/editBlog">  EDIT BLOG </Link> </h1>
             </section>
         )

@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-import { AuthHeader } from "../../common/auth.header/auth.header.components";
 import { notify } from "../../../utils/toaster";
 
 import './Login.components.css'
@@ -95,7 +94,6 @@ export class Login extends Component {
     render(){
         return(
             <div className="big-container">
-                <AuthHeader />
                 <div className="form-container">
                 <h2> Welcome Back </h2>
                 <form className="login-form" onSubmit={this.onSubmit}>

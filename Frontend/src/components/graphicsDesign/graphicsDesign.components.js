@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { handleError } from '../../utils/errorHandler';
 import { httpClient } from '../../utils/httpClient';
 import { notify } from '../../utils/toaster';
+import { Loader } from '../common/loader/loader.components';
 
 export class GraphicsDesign extends Component {
     constructor(){
@@ -54,7 +55,7 @@ export class GraphicsDesign extends Component {
     render() {
         console.log('content state>>', this.state.content)
         let content = this.state.isLoading
-            ? <p> Showing Loader </p>
+            ? < Loader/>
             : <>
             
             {
@@ -76,7 +77,7 @@ export class GraphicsDesign extends Component {
                             </div>
                         :   <div className='row mb-5' key={index}>
                                 <div className='col-12 col-lg-4'>
-                                    <h1> hello {content.title} </h1>
+                                    <h1> {content.title} </h1>
                                 </div>
                                 <div className='col-12 col-lg-8'>
                                     <p>
@@ -89,7 +90,7 @@ export class GraphicsDesign extends Component {
 
             </>
         return (
-            <section>
+            <section style={{marginTop: '-8vh'}}>
                 <section className='d-flex align-items-center text-center mb-5' style={{height: "80vh", background: "#000", color: "#fff"}}>
                     <div className='container'>
                         <h1> Graphics Design </h1>
@@ -99,6 +100,19 @@ export class GraphicsDesign extends Component {
                 <section>
                     <div className='container pt-5 mb-5'>
                     {content}
+                    {
+                    this.props.dashboard
+                        ?    
+                        <Link to="/addGraphicsDesign">
+                    <div className='row mb-5 parent-div'>
+                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg'/>  </div>
+                        <div className='col-12 col-md-6 col-lg-3 child-div'>  </div>
+                        <div className='col-12 col-md-6 col-lg-8 d-flex align-items-center child-div' >  </div>
+                    
+                    </div>  
+                        </Link>
+                        : ''
+                }
                     </div>
                 </section>
             </section>

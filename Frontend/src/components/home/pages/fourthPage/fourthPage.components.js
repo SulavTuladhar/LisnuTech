@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { handleError } from '../../../../utils/errorHandler';
 import { httpClient } from '../../../../utils/httpClient';
+import { Loader } from '../../../common/loader/loader.components';
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
 export class FourthPage extends Component {
@@ -32,7 +33,7 @@ export class FourthPage extends Component {
     render() {
 
         let content = this.state.isLoading
-            ? <p> Show Loader </p>
+            ? <Loader/>
             : <>
                 {
                     (this.state.contents || []).map((product,index)=> (

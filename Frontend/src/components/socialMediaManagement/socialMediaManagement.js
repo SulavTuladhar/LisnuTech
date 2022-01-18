@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { notify } from '../../utils/toaster';
 
 import './socialMedia.components.css'
+import { Loader } from '../common/loader/loader.components';
 
 export class SocialMediaManagement extends Component {
     constructor(){
@@ -54,7 +55,7 @@ export class SocialMediaManagement extends Component {
     render() {
         console.log('props >>', this.props.dashboard)
         let content = this.state.isLoading
-            ? <p> Showing Loader here </p>
+            ? < Loader/>
             : <>
                 {
                             (this.state.contents || []).map((content,index)=>(
@@ -79,7 +80,7 @@ export class SocialMediaManagement extends Component {
                 </>
 
         return (
-            <section>
+            <section >
             <div>
                 <div className='container'>
                 <img src='./images/socialmedia.jpg' className='img-fluid'/>

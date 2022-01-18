@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { handleError } from '../../utils/errorHandler';
 import { httpClient } from '../../utils/httpClient';
+import { Loader } from '../common/loader/loader.components';
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
 export class ViewBlog extends Component {
@@ -36,7 +37,7 @@ export class ViewBlog extends Component {
 
     render() {
         let content = this.state.isLoading
-            ? <> <p> SHOWING LOADER </p> </>
+            ? < Loader />
             : <>
                         <div className='container-fluid text-center mb-5'>
                     <img src={`${IMG_URL}/${this.state.blog.img}`} className='img-fluid' alt='blog-img' />
@@ -50,7 +51,7 @@ export class ViewBlog extends Component {
             </>
         console.log('stae ma k cha ta blog ko >>', this.state.blog)
         return (
-            <section>
+            <section className='mt-5'>
                         
                 {content}
                         

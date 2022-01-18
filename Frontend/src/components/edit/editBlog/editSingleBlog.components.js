@@ -81,17 +81,17 @@ export class editSingleBlog extends Component {
     render() {
         return (
             <>
-                 <section section className='container-fluid' style={{height: '90vh', display: 'flex'}}>
-            <div className='container d-flex align-items-center'>
-                <form onSubmit={this.onSubmit} className='container-fluid form' noValidate>
-                    <div className='row'>
+                 <section section className='container-fluid ' >
+            <div className='container  d-flex align-items-center justify-content-center'>
+                <form onSubmit={this.onSubmit} className='form ' noValidate>
+                    <div className='rows'>
                         <div className='col-12 text-center'>
                         <h1> Edit Graphics Design Content </h1> 
                         </div>
-                        <div className='col-12'>
+                        <div className='col-12 container-fluid '>
                             <label htmlFor='description'> Image </label>
                             <input type='file' onChange={this.handleChange} className='form-control' />
-                            <img src={`${IMG_URL}/${this.state.data.img}`} />
+                            <img src={`${IMG_URL}/${this.state.data.img}`} className='img-fluid' />
                         </div>
                         <div className='col-12'>
                             <label htmlFor='title'> Title </label>

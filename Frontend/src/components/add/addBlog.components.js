@@ -21,7 +21,7 @@ export class AddBlog extends Component {
         httpClient.UPLOAD('POST', '/blog', data,file)
             .then(res=>{
                 notify.showSucess('Blog added sucessfully');
-                this.props.history.push('/blog');
+                this.props.history.push('/editBlog');
             })
             .catch(err=>{
                 handleError(err)

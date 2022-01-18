@@ -6,6 +6,7 @@ import Aos, { AOS } from 'aos';
 import 'aos/dist/aos.css'
 
 import './secondPage.components.css';
+import { Loader } from '../../../common/loader/loader.components';
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
 
@@ -38,7 +39,7 @@ export class SecondPage extends Component {
     }
     render() {
         let content = this.state.isLoading
-            ? <p> Show loader </p>
+            ? < Loader/>
             : <>
                         {
                             (this.state.contents || []).map((content,index) => (

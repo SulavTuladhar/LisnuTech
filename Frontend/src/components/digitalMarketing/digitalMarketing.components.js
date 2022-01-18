@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { handleError } from '../../utils/errorHandler';
 import { httpClient } from '../../utils/httpClient';
 import { notify } from '../../utils/toaster';
+import { Loader } from '../common/loader/loader.components';
 
 export class DigitalMarketing extends Component {
     constructor(){
@@ -53,7 +54,7 @@ export class DigitalMarketing extends Component {
 
     render() {
         let content = this.state.isLoading
-            ? <p> loader here </p>
+            ? < Loader />
             : <>
                 {
                     (this.state.content || []).map((content,index) => (
@@ -85,8 +86,8 @@ export class DigitalMarketing extends Component {
                 }
             </>
         return (
-            <section>
-                <section className='d-flex align-items-center text-center mb-5' style={{height: "60vh", background: "#000", color: "#fff"}}>
+            <section  style={{marginTop: '-8vh'}}>
+                <section className='d-flex align-items-center text-center mb-5' style={{height: "70vh", background: "#000", color: "#fff"}}>
                     <div className='container'>
                         <h1> Digital Marketing </h1>
                     </div>
@@ -95,6 +96,19 @@ export class DigitalMarketing extends Component {
                 <section className='pt-5'>
                     <div className='container'>
                         {content}
+                        {
+                    this.props.dashboard
+                        ?    
+                        <Link to="/addDigitalMarketing">
+                    <div className='row mb-5 parent-div'>
+                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg'/>  </div>
+                        <div className='col-12 col-md-6 col-lg-3 child-div'>  </div>
+                        <div className='col-12 col-md-6 col-lg-8 d-flex align-items-center child-div' >  </div>
+                    
+                    </div>  
+                        </Link>
+                        : ''
+                }
                     </div>
                 </section>
             </section>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { handleError } from '../../utils/errorHandler';
 import { httpClient } from '../../utils/httpClient';
 import { notify } from '../../utils/toaster';
+import { Loader } from '../common/loader/loader.components';
 
 export class WebDevelopment extends Component {
     constructor(){
@@ -106,7 +107,7 @@ export class WebDevelopment extends Component {
             </>
 
         let content = this.state.isLoading
-            ? <p> Showing Loader Here </p>
+            ? < Loader />
             : <>
                 {
                     (this.state.posts || []).map((post,index)=>(
@@ -128,7 +129,7 @@ export class WebDevelopment extends Component {
             </>
 
         return (
-            <section>
+            <section style={{marginTop: '-8vh'}}>
                 {title}
 
                 <section className='container-fluid mt-5 pt-5'>

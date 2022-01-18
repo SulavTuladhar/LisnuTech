@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { handleError } from '../../utils/errorHandler';
 import { httpClient } from '../../utils/httpClient';
 import { notify } from '../../utils/toaster';
+import { Loader } from '../common/loader/loader.components';
 
 import './cssStye.css';
 const IMG_URL = process.env.REACT_APP_IMG_URL;
@@ -57,7 +58,7 @@ export class Blog extends Component {
 
         render() {
             let content = this.state.isLoading
-                ? <p> Show loader here  </p>
+                ? < Loader />
                 : <>
                     {
                         (this.state.blogs || []).map((blog,index)=>(
@@ -73,7 +74,7 @@ export class Blog extends Component {
                                 this.props.dashboard && (
                                     <>
                                     <Link to={`/editSingleBlog/${blog._id}`} className="btn btn-primary ml-5">Edit Blog</Link>
-                                    <button className='btn btn-primary' onClick={()=>this.removeContent(blog._id,index)}> delete </button>
+                                    <button className='btn btn-primary mt-2' onClick={()=>this.removeContent(blog._id,index)}> delete </button>
                                     </>
                                 )
                             }
@@ -96,7 +97,9 @@ export class Blog extends Component {
                         <div className='row ml-sm-5'>
                             
 
-                <div className='col-12 col-md-6 col-lg-4 mb-5'>
+            {
+                this.props.dashboard
+                    ? <div className='col-12 col-md-6 col-lg-4 mb-5'>
                     <div className="card shadow" style={{width: '18rem'}}>
                     <div className="card-img-top bg-dark" style={{height: "10rem"}}> </div>
                     <div className="card-body" >
@@ -106,6 +109,8 @@ export class Blog extends Component {
                     </div>
                     </div>
                 </div>
+                    : ''
+            }
 
                 {content}
                            </div>

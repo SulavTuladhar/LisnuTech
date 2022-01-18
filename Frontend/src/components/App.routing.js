@@ -12,6 +12,7 @@ import { Register } from "./auth/Register/Register.components";
 import { Blog } from "./blog/blog.components";
 import { ViewBlog } from "./blog/viewBlog.components";
 import { Header } from "./common/header/Header.components";
+import { Loader } from "./common/loader/loader.components";
 import {PageNotFound } from "./common/PageNotFound/PageNotFound.components";
 import { contact } from "./Contact/contact.components";
 import { Dashboard } from "./dashboard/dashboard.components";
@@ -73,6 +74,7 @@ export const AppRouting = (props) =>{
                 <PublicRoute path="/digitalMarketing" component={ DigitalMarketing } />
                 <PublicRoute path="/graphicsDesign" component={ GraphicsDesign } />
                 <PublicRoute path="/contact" component={  contact } />
+                <PublicRoute path="/loader" component={  Loader } />
                 
                 
                 <ProtectedRoute path="/editDigitalMarketing" component={ EditDigitalMarketing } />
