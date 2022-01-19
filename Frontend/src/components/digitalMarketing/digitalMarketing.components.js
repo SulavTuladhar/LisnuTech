@@ -60,7 +60,7 @@ export class DigitalMarketing extends Component {
                     (this.state.content || []).map((content,index) => (
                         this.props.dashboard
                             ? <div className='row mb-5' key={index}>
-                                    <div className='col-4'> <h2> hello {content.title} </h2> </div>
+                                    <div className='col-4'> <h2> {content.title} </h2> </div>
                                     <div className='col-6'> 
                                         <p>  
                                             {content.description}
