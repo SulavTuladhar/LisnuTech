@@ -23,9 +23,9 @@ const HeaderComponent = (props)=>{
                                     style={{outline: 'none'}}
                                 >
                                     <span className="navbar-toggler-icon p-fixed"> 
-                                        <div id="bar1" class="bar"></div>
-                                        <div id="bar2" class="bar"></div>
-                                        <div id="bar3" class="bar"></div>
+                                        <div id="bar1" className="bar"></div>
+                                        <div id="bar2" className="bar"></div>
+                                        <div id="bar3" className="bar"></div>
                                     </span>
                                 </button>       
                     <div className="collapse navbar-collapse" id='navmenu'>
@@ -54,9 +54,9 @@ const HeaderComponent = (props)=>{
                                     data-bs-target="#navmenu"
                                 >
                                     <span className="navbar-toggler-icon p-fixed"> 
-                                        <div id="bar1" class="bar"></div>
-                                        <div id="bar2" class="bar"></div>
-                                        <div id="bar3" class="bar"></div>
+                                        <div id="bar1" className="bar"></div>
+                                        <div id="bar2" className="bar"></div>
+                                        <div id="bar3" className="bar"></div>
                                     </span>
                                 </button>
                     <div className="collapse navbar-collapse" id='navmenu'>

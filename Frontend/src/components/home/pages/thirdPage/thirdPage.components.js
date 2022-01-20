@@ -7,6 +7,7 @@ import './thirdPage.components.css'
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
 export class ThirdPage extends Component {
+    _isMounted = false;
     constructor(){
         super();
         this.state = ({
@@ -16,11 +17,14 @@ export class ThirdPage extends Component {
     }
 
     componentDidMount(){
+        this._isMounted = true;
         httpClient.GET('/page/third-page', true)
             .then(res=>{
+                if (this._isMounted) {
                 this.setState({
                     contents: res.data
                 })
+            }
             })
             .catch(err=>{
                 handleError(err);
@@ -31,6 +35,9 @@ export class ThirdPage extends Component {
                 })
             })
     }
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
 
     render() {
         let content = this.state.isLoading
