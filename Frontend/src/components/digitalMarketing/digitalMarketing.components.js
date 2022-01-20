@@ -101,7 +101,7 @@ export class DigitalMarketing extends Component {
                         ?    
                         <Link to="/addDigitalMarketing">
                     <div className='row mb-5 parent-div'>
-                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg'/>  </div>
+                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg' alt='icon'/>  </div>
                         <div className='col-12 col-md-6 col-lg-3 child-div'>  </div>
                         <div className='col-12 col-md-6 col-lg-8 d-flex align-items-center child-div' >  </div>
                     

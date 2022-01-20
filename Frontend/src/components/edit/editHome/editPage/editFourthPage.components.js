@@ -15,7 +15,7 @@ const validationFields = {
     img: []
 }
   
-export class editFourthPage extends Component {
+export class EditFourthPage extends Component {
     constructor(){
         super();
         this.state = {
@@ -27,7 +27,6 @@ export class editFourthPage extends Component {
     }
     componentDidMount(){
         this.productId = this.props.match.params['id'];
-        console.log('pageee ID >>', this.props.match.params)
         
         httpClient.GET(`/page/fourth-pages/${this.productId}`, true)
         .then(res=>{
@@ -45,7 +44,6 @@ export class editFourthPage extends Component {
     handleChange = e =>{
         let {name,value,type,files} = e.target;
         if(type === 'file'){
-            console.log('file zero index>>', files)
             // Single File Upload
             return this.setState({
                 fileToUpload: files
@@ -63,7 +61,6 @@ export class editFourthPage extends Component {
 
       onSubmit = e =>{
         e.preventDefault();
-        console.log('clicked')
         this.setState({
             isSubmitting: true
         })
@@ -86,7 +83,6 @@ export class editFourthPage extends Component {
       }
   
     render() {
-        console.log('second page ko DESCRIPTION >>', this.state.data)
 
         return (
             <section section className='fourth-page container-fluid'>
@@ -114,7 +110,7 @@ export class editFourthPage extends Component {
                      </div>
                      <div className='col-12 d-none d-lg-block col-md-6 col-lg-3 px-0' style={{height: "80vh"}}>
                         <input type="file" className='form-control'  onChange={this.handleChange} />
-                        <img src={`${IMG_URL}/${this.state.data.img}`} style={{height: "100%", width: "100%"}} />
+                        <img src={`${IMG_URL}/${this.state.data.img}`} style={{height: "100%", width: "100%"}} alt='fourth-page-img' />
                      </div>
                      <button className='btn btn-primary mb-5 mt-2' style={{width: "20vw"}}> Submit </button>
                     </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

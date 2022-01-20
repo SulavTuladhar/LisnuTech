@@ -56,9 +56,8 @@ export class Login extends Component {
     }
 
     handleChange = (e)=>{
-        // console.log(e.target)
         let {name, value, type, checked} = e.target;
-        if( type == 'checkbox'){
+        if( type === 'checkbox'){
             return this.setState({
                 remember_me: checked
             })
@@ -87,7 +86,6 @@ export class Login extends Component {
         })
 
         let validForm = !(usernameErr || passwordErr)
-        console.log('valid form is >>', validForm)
         return validForm;
     }
 

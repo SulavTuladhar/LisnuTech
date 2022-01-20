@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import { handleError } from '../../utils/errorHandler';
-import { httpClient } from '../../utils/httpClient';
-import { notify } from '../../utils/toaster';
 
 const defaultForm = {
     title: '',
@@ -21,7 +18,6 @@ export class AddForm extends Component {
     handleChange = e =>{
         let {name, value, type, files} = e.target;
         if(type === 'file'){
-            console.log('file zero index>>', files)
             // Single File Upload
             return this.setState({
                 fileToUpload: files
@@ -37,7 +33,6 @@ export class AddForm extends Component {
 
     onSumbit = e =>{
         e.preventDefault();
-        console.log('files k ho ta yo >>', this.state.fileToUpload)
         this.props.submitCallBack(this.state.data,this.state.fileToUpload)
     }
 

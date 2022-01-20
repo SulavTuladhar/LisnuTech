@@ -58,7 +58,7 @@ export class FourthPage extends Component {
                                     </div>
                         
                                     <div className='col-12 d-none d-lg-block col-md-6 col-lg-3 px-0' style={{height: "80vh"}}>
-                                        <img src={`${IMG_URL}/${product.img}`} style={{height: "100%", width: "100%"}} />
+                                        <img src={`${IMG_URL}/${product.img}`} style={{height: "100%", width: "100%"}} alt='fourth-page-img' />
                                     </div>
                                 </div>
                             </section>
@@ -81,7 +81,7 @@ export class FourthPage extends Component {
                                     </div>
 
                                     <div className='col-12 d-none d-lg-block col-md-6 col-lg-3 px-0' style={{height: "80vh"}}>
-                                        <img src={`${IMG_URL}/${product.img}`} style={{height: "100%", width: "100%"}} />
+                                        <img src={`${IMG_URL}/${product.img}`} style={{height: "100%", width: "100%"}} alt='fourth-page-img' />
                                     </div>
                                     </div>
                             </section>

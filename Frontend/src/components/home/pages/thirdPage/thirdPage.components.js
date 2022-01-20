@@ -33,7 +33,6 @@ export class ThirdPage extends Component {
     }
 
     render() {
-        console.log('props in third page >', this.props)
         let content = this.state.isLoading
             ? <Loader />
             : <>
@@ -44,7 +43,7 @@ export class ThirdPage extends Component {
                                 <button className='btn btn-primary mb-2'> <Link to={`/thirdPage/${content._id}`} style={{color: "#fff"}}> edit </Link>  </button>
                                 <div className='row'>
                                     <div className='col-12 col-lg-5 px-0'>
-                                        <img src={`${IMG_URL}/${content.img}`} className='img-fluid'/>
+                                        <img src={`${IMG_URL}/${content.img}`} className='img-fluid' alt='third-page-img'/>
                                     </div>
                                     <div className='col-12 col-lg-4 pt-5 d-flex flex-column align-items-center d-lg-block'  style={{height: "80vh", background: '#fff', zIndex: '10'}}>
                                         <h1> Skill At Lisnutech </h1>
@@ -67,7 +66,7 @@ export class ThirdPage extends Component {
                             : <section className='third-page container-fluid' key={index} >
                                 <div className='row'>
                                     <div className='col-12 col-lg-5 px-0 '>
-                                        <img src={`${IMG_URL}/${content.img}`} style={{height: '100%', width: '100%'}}/>
+                                        <img src={`${IMG_URL}/${content.img}`} style={{height: '100%', width: '100%'}} alt='third-page-img'/>
                                     </div>
                                     <div className='col-12 col-lg-4 pt-5 d-flex flex-column align-items-center d-lg-block'  style={{height: "80vh", background: '#fff', zIndex: '10'}}>
                                         <h1> Skill At Lisnutech </h1>

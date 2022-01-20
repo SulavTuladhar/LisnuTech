@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { handleError } from '../../../../utils/errorHandler';
 import { httpClient } from '../../../../utils/httpClient';
-import Aos, { AOS } from 'aos';
+import Aos from 'aos';
 import 'aos/dist/aos.css'
 
 import './secondPage.components.css';
@@ -55,7 +55,7 @@ export class SecondPage extends Component {
                                             </div>
                                 
                                             <div className='col-12 col-lg-4 px-0'  style={{height: "80vh"}}>
-                                                <img src={`${IMG_URL}/${content.img}`} style={{height: "100%", width: "100%"}} />
+                                                <img src={`${IMG_URL}/${content.img}`} style={{height: "100%", width: "100%"}} alt='second-page-img' />
                                             </div>
                                             <div className='col-12 col-lg-3 d-flex d-lg-block flex-column align-items-center aside-img pt-5 ' style={{color: "#fff", background: "#000", height: "80vh"}}>
                                                 <h1 > {content.secondTitle} </h1>
@@ -74,7 +74,7 @@ export class SecondPage extends Component {
                                             </div>
                                 
                                             <div className='col-12 col-lg-4 px-0'  style={{height: "80vh"}}>
-                                            <img src={`${IMG_URL}/${content.img}`} style={{height: "100%", width: "100%"}} />
+                                            <img src={`${IMG_URL}/${content.img}`} style={{height: "100%", width: "100%"}} alt='second-page-img' />
 
                                             </div>
                                             <div data-aos="fade-left" className='col-12 col-lg-3 d-flex d-lg-block flex-column align-items-center aside-img pt-5 ' style={{color: "#fff", background: "#000", height: "80vh"}}>

@@ -15,7 +15,7 @@ const validationFields = {
     description: '',
 }
   
-export class editThirdPage extends Component {
+export class EditThirdPage extends Component {
     constructor(){
         super();
         this.state = {
@@ -44,7 +44,6 @@ export class editThirdPage extends Component {
     handleChange = e =>{
         let {name,value,type,files} = e.target;
         if(type === 'file'){
-            console.log('file zero index>>', files)
             // Single File Upload
             return this.setState({
                 fileToUpload: files
@@ -63,7 +62,6 @@ export class editThirdPage extends Component {
 
       onSubmit = e =>{
         e.preventDefault();
-        console.log('clicked')
         this.setState({
             isSubmitting: true
         })
@@ -86,7 +84,6 @@ export class editThirdPage extends Component {
       }
   
     render() {
-        console.log('second page ko DESCRIPTION >>', this.state.data)
 
         return (
             <section className='third-page container-fluid'>
@@ -95,7 +92,7 @@ export class editThirdPage extends Component {
                <div className='row'>
                <div className='col-12 col-lg-6 px-0 bg-dark'>
                <input type="file"  onChange={this.handleChange} className='form-control'/>
-                    <img src={`${IMG_URL}/${this.state.data.img}`} className='img-fluid'/>
+                    <img src={`${IMG_URL}/${this.state.data.img}`} className='img-fluid' alt='third-page-img'/>
                  </div>
                  <div className='col-12 col-lg-3 pt-5 d-flex flex-column align-items-center d-lg-block'  style={{height: "80vh"}} >
                      <h1> Skill At Lisnutech Company </h1>

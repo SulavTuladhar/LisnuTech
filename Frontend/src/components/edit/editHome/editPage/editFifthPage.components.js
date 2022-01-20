@@ -14,7 +14,7 @@ const validationFields = {
     description: '',
 }
   
-export class editFifthPage extends Component {
+export class EditFifthPage extends Component {
     constructor(){
         super();
         this.state = {
@@ -42,7 +42,6 @@ export class editFifthPage extends Component {
     handleChange = e =>{
         let {name,value,type,files} = e.target;
         if(type === 'file'){
-            console.log('file zero index>>', files)
             // Single File Upload
             return this.setState({
                 fileToUpload: files
@@ -61,7 +60,6 @@ export class editFifthPage extends Component {
 
       onSubmit = e =>{
         e.preventDefault();
-        console.log('clicked')
         this.setState({
             isSubmitting: true
         })
@@ -84,7 +82,6 @@ export class editFifthPage extends Component {
       }
   
     render() {
-        console.log('fifth page ko DESCRIPTION >>', this.state.data)
 
         return (
             <section className='container-fluid'>

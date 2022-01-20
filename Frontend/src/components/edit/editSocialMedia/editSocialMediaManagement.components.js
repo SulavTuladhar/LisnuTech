@@ -52,7 +52,6 @@ export class EditSocialMeidaManagement extends Component {
 
       onSubmit = e =>{
         e.preventDefault();
-        console.log('clicked')
         this.setState({
             isSubmitting: true
         })

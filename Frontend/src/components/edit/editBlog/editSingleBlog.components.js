@@ -11,7 +11,7 @@ const defaultForm = {
     content: ''
 }
 
-export class editSingleBlog extends Component {
+export class EditSingleBlog extends Component {
     constructor(){
         super();
         this.state = {
@@ -41,7 +41,6 @@ export class editSingleBlog extends Component {
     handleChange = e =>{
         let {name, value, type, files} = e.target;
         if(type === 'file'){
-            console.log('file zero index>>', files)
             // Single File Upload
             return this.setState({
                 fileToUpdate: files
@@ -91,7 +90,7 @@ export class editSingleBlog extends Component {
                         <div className='col-12 container-fluid '>
                             <label htmlFor='description'> Image </label>
                             <input type='file' onChange={this.handleChange} className='form-control' />
-                            <img src={`${IMG_URL}/${this.state.data.img}`} className='img-fluid' />
+                            <img src={`${IMG_URL}/${this.state.data.img}`} className='img-fluid' alt='blog-img' />
                         </div>
                         <div className='col-12'>
                             <label htmlFor='title'> Title </label>

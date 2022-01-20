@@ -6,7 +6,7 @@ import { ThirdPage } from '../../home/pages/thirdPage/thirdPage.components'
 
 
 
-export class editHome extends Component {
+export class EditHome extends Component {
     render() {
         return (
             <section>

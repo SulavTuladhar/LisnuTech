@@ -15,7 +15,7 @@ const validationFields = {
     description: '',
 }
   
-export class editSecondPage extends Component {
+export class EditSecondPage extends Component {
     constructor(){
         super();
         this.state = {
@@ -44,7 +44,6 @@ export class editSecondPage extends Component {
     handleChange = e =>{
         let {name,value,type,files} = e.target;
         if(type === 'file'){
-            console.log('file zero index>>', files)
             // Single File Upload
             return this.setState({
                 fileToUpload: files
@@ -62,7 +61,6 @@ export class editSecondPage extends Component {
 
       onSubmit = e =>{
         e.preventDefault();
-        console.log('clicked')
         this.setState({
             isSubmitting: true
         })
@@ -85,7 +83,6 @@ export class editSecondPage extends Component {
       }
   
     render() {
-        console.log('second page ko DESCRIPTION >>', this.state.data)
 
         return (
             <section className='container-fluid'>
@@ -107,7 +104,7 @@ export class editSecondPage extends Component {
                 <div className='col-12 col-lg-4 px-0'  style={{height: "80vh"}}>
                <input type="file"  onChange={this.handleChange} className='form-control'/>
 
-                <img src={`${IMG_URL}/${this.state.data.img}`} style={{height: "100%", width: "100%"}} />
+                <img src={`${IMG_URL}/${this.state.data.img}`} style={{height: "100%", width: "100%"}} alt='second-page-img' />
             </div>
 
             <div data-aos="fade-left" className='col-12 col-lg-3 d-flex d-lg-block flex-column align-items-center aside-img pt-5 ' style={{color: "#fff", background: "#000", height: "80vh"}}>

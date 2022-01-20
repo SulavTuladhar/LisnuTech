@@ -4,7 +4,7 @@ import { httpClient } from '../../utils/httpClient';
 import { notify } from '../../utils/toaster';
 import { AddForm } from './addForm.components';
 
-export class addSocialMediaManagement extends Component {
+export class AddSocialMediaManagement extends Component {
     constructor(){
         super();
         this.state = {

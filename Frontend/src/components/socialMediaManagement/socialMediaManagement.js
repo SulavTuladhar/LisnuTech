@@ -53,7 +53,6 @@ export class SocialMediaManagement extends Component {
     }
 
     render() {
-        console.log('props >>', this.props.dashboard)
         let content = this.state.isLoading
             ? < Loader/>
             : <>
@@ -83,7 +82,7 @@ export class SocialMediaManagement extends Component {
             <section >
             <div>
                 <div className='container'>
-                <img src='./images/socialmedia.jpg' className='img-fluid'/>
+                <img src='./images/socialmedia.jpg' className='img-fluid' alt='social-media-logo'/>
                 </div>
             </div>
             <div className='mb-5 pb-5 mt-5 pt-5'>
@@ -95,7 +94,7 @@ export class SocialMediaManagement extends Component {
                         ?    
                         <Link to="addSocialMedia">
                     <div className='row mb-5 parent-div'>
-                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg'/>  </div>
+                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg' alt='icon'/>  </div>
                         <div className='col-12 col-md-6 col-lg-3 child-div'>  </div>
                         <div className='col-12 col-md-6 col-lg-8 d-flex align-items-center child-div' >  </div>
                     
@@ -105,10 +104,10 @@ export class SocialMediaManagement extends Component {
                 }
                 <h2> What Social Media Offers? </h2>
                                     <div className='row'>
-                                        <div className='col-12 col-md-6 col-lg-3'> <img src='./images/sound.jpg' className='img-fluid'/> </div>
-                                        <div className='col-12 col-md-6 col-lg-3'> <img src='./images/like.jpg' className='img-fluid'/> </div>
-                                        <div className='col-12 col-md-6 col-lg-3'> <img src='./images/people.jpg' className='img-fluid'/> </div>
-                                        <div className='col-12 col-md-6 col-lg-3'> <img src='./images/sales.jpg' className='img-fluid'/> </div>
+                                        <div className='col-12 col-md-6 col-lg-3'> <img src='./images/sound.jpg' alt='base-img' className='img-fluid'/> </div>
+                                        <div className='col-12 col-md-6 col-lg-3'> <img src='./images/like.jpg' alt='base-img' className='img-fluid'/> </div>
+                                        <div className='col-12 col-md-6 col-lg-3'> <img src='./images/people.jpg' alt='base-img' className='img-fluid'/> </div>
+                                        <div className='col-12 col-md-6 col-lg-3'> <img src='./images/sales.jpg' alt='base-img' className='img-fluid'/> </div>
                                     </div>
                                 </div>
                             </div>

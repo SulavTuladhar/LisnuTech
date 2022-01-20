@@ -66,8 +66,6 @@ export class WebDevelopment extends Component {
 
 
     render() {
-        console.log('posts >>', this.state.posts)
-        console.log('content >>', this.state.content)
 
         let title= this.state.isLoading
             ? <p> Showing Loader here </p>
@@ -141,7 +139,7 @@ export class WebDevelopment extends Component {
                         ?    
                         <Link to="/addWebDevelopment">
                     <div className='row mb-5 parent-div'>
-                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg'/>  </div>
+                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg' alt='icon'/>  </div>
                         <div className='col-12 col-md-6 col-lg-3 child-div'>  </div>
                         <div className='col-12 col-md-6 col-lg-8 d-flex align-items-center child-div' >  </div>
                     

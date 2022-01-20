@@ -37,8 +37,6 @@ export class EditWebDevelopmentHeader extends Component {
 
     handleChange = e =>{
         let {name,value} = e.target;
-        console.log('name >', name)
-        console.log('value >', value)
         this.setState(perState =>({
             data: {
                 ...perState.data,
@@ -52,7 +50,6 @@ export class EditWebDevelopmentHeader extends Component {
         this.setState({
             isSubmitting: true
         })
-        const data = this.state.data;
         httpClient.PUT(`/webDevelopment/${this.pageId}`, this.state.data, true)
             .then(res=>{
                 notify.showInfo('content Updated');
@@ -67,7 +64,6 @@ export class EditWebDevelopmentHeader extends Component {
     }
 
     render() {
-        console.log('state ko data >>', this.state.data)
         return (
             <section section className='container-fluid' style={{height: '90vh', display: 'flex'}}>
                 <div className='container d-flex align-items-center'>

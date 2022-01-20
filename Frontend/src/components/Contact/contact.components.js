@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import emailjs from 'emailjs-com';
 import { notify } from '../../utils/toaster';
 
-export class contact extends Component {
+export class Contact extends Component {
     render() {
         function sendEmail(e){
             e.preventDefault();
@@ -19,10 +19,6 @@ export class contact extends Component {
               let inputs = document.querySelectorAll('input');
               inputs.forEach((input)=> (input.value = ''))
 
-          }
-          function clear(e){
-              e.preventDefault();
-  
           }
         return (
             <section>

@@ -53,7 +53,6 @@ export class GraphicsDesign extends Component {
     }
 
     render() {
-        console.log('content state>>', this.state.content)
         let content = this.state.isLoading
             ? < Loader/>
             : <>
@@ -105,7 +104,7 @@ export class GraphicsDesign extends Component {
                         ?    
                         <Link to="/addGraphicsDesign">
                     <div className='row mb-5 parent-div'>
-                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg'/>  </div>
+                        <div className='col-12 show-on-hover'> <img src='./images/add-btn.svg' alt='icon'/>  </div>
                         <div className='col-12 col-md-6 col-lg-3 child-div'>  </div>
                         <div className='col-12 col-md-6 col-lg-8 d-flex align-items-center child-div' >  </div>
                     

@@ -16,7 +16,6 @@ export class FifthPage extends Component {
     }
 
     componentDidMount(){
-        console.log("props here >>", this.props)
         httpClient.GET('/page/fifth-page', true)
             .then(res=>{
                 this.setState({
@@ -34,7 +33,6 @@ export class FifthPage extends Component {
     }
 
     render() {
-        console.log('props here>>', this.state.contents)
         let content = this.state.isLoading
             ? <Loader />
             : <>

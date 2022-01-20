@@ -18,7 +18,6 @@ export class ViewBlog extends Component {
             isLoading: true
         })
         this.contentId = this.props.match.params['id'];
-        console.log('params >>', this.contentId)
         httpClient.GET(`/blog/${this.contentId}`)
             .then(res=>{
                 this.setState({
@@ -49,7 +48,6 @@ export class ViewBlog extends Component {
                     </p>
                 </div>
             </>
-        console.log('stae ma k cha ta blog ko >>', this.state.blog)
         return (
             <section className='mt-5'>
                         

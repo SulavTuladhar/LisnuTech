@@ -11,11 +11,10 @@ const logout = (history) =>{
 
 const HeaderComponent = (props)=>{
     const currentUser = JSON.parse(localStorage.getItem('user'))
-    console.log('props is >>', props)
     let content = props.isLoggedIn
         ?  <nav className="navbar bg-color pt-4 pb-4 loggedInNavBar" style={{zIndex: "1000", position: "fixed", width: '100vw'}}>
                 <div className='container'>
-                    <img src='./../images/logo.png' />
+                    <Link to="/dashboard"> <img src='./../images/logo.png' alt='logo' /> </Link>
                     <button
                                     className="navbar-toggler"
                                     type="button"
@@ -47,7 +46,7 @@ const HeaderComponent = (props)=>{
         </nav>
         :   <nav className="navbar pt-4 pb-4 bg-color position-fixed container-fluid" style={{zIndex: '1000'}}>
                 <div className='container'>
-                    <img src='./images/logo.png' />
+                    <img src='./images/logo.png' alt='logo' />
                                 <button
                                     className="navbar-toggler"
                                     type="button"
