@@ -6,6 +6,8 @@ import { Loader } from '../../../common/loader/loader.components';
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
 export class FifthPage extends Component {
+    _isMounted = false;
+
     constructor(props){
         super(props);
 
@@ -16,11 +18,16 @@ export class FifthPage extends Component {
     }
 
     componentDidMount(){
+        this._isMounted = true;
+
         httpClient.GET('/page/fifth-page', true)
             .then(res=>{
+            if (this._isMounted) {
+
                 this.setState({
                     contents: res.data
                 })
+            }
             })
             .catch(err=>{
                 handleError(err);
@@ -32,6 +39,9 @@ export class FifthPage extends Component {
             })
     }
 
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
     render() {
         let content = this.state.isLoading
             ? <Loader />

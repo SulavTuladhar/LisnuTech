@@ -11,6 +11,8 @@ const defaultForm = {
 }
 
 export class EditWebDevelopmentHeader extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = {
@@ -20,15 +22,20 @@ export class EditWebDevelopmentHeader extends Component {
     }
 
     componentDidMount(){
+        this._isMounted = true;
+
         this.pageId = this.props.match.params['id'];
         httpClient.GET(`/webDevelopment/${this.pageId}`, true)
             .then(res=>{
+                if(this._isMounted) {
+
                 this.setState({
                     data: {
                         ...defaultForm,
                         ...res.data
                     }
                 })
+            }
             })
             .catch(err=>{
                 handleError(err);
@@ -63,6 +70,9 @@ export class EditWebDevelopmentHeader extends Component {
             })
     }
 
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
     render() {
         return (
             <section section className='container-fluid' style={{height: '90vh', display: 'flex'}}>
@@ -74,17 +84,17 @@ export class EditWebDevelopmentHeader extends Component {
                             </div>
                             <div className='col-12'>
                                 <label htmlFor='title'> Top Title </label>
-                                <input type='text' name='topTitle' id='title' value={this.state.data.topTitle} onChange={this.handleChange} className='form-control' />
+                                <input type='text' name='topTitle' id='title' value={this.state.data.topTitle || ''} onChange={this.handleChange} className='form-control' />
                             </div>
 
                             <div className='col-12'>
                                 <label htmlFor='description'> Top Description </label>
-                                <input type='text' name='topDescription' id='description' value={this.state.data.topDescription} onChange={this.handleChange} className='form-control' />
+                                <input type='text' name='topDescription' id='description' value={this.state.data.topDescription || ''} onChange={this.handleChange} className='form-control' />
                             </div>
 
                             <div className='col-12'>
                                 <label htmlFor='header'> Header </label>
-                                <input type='text' name='header' id='header' value={this.state.data.header} onChange={this.handleChange} className='form-control' />
+                                <input type='text' name='header' id='header' value={this.state.data.header || ''} onChange={this.handleChange} className='form-control' />
                             </div>
                             <div className='col-12 text-center'>
                                 <button className='btn btn-primary mb-5 mt-2' style={{width: "14vw", height: '6vh'}}> Submit </button>

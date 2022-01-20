@@ -16,6 +16,8 @@ const validationFields = {
 }
   
 export class EditFourthPage extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = {
@@ -26,16 +28,21 @@ export class EditFourthPage extends Component {
         }
     }
     componentDidMount(){
+        this._isMounted = true;
+
         this.productId = this.props.match.params['id'];
         
         httpClient.GET(`/page/fourth-pages/${this.productId}`, true)
         .then(res=>{
+            if(this._isMounted) {
+
             this.setState({
                 data: {
                     // ...defaultForm,
                     ...res.data
                 }
             })
+        }
         })
         .catch(err=>{
             handleError(err);
@@ -81,9 +88,12 @@ export class EditFourthPage extends Component {
                 })
             })
       }
+      componentWillUnmount() {
+        this._isMounted = false;
+      }
   
     render() {
-
+        console.log('images >>', this.state.data.img)
         return (
             <section section className='fourth-page container-fluid'>
                 <form onSubmit={this.onSubmit} className='container-fluid form' noValidate>
@@ -93,20 +103,20 @@ export class EditFourthPage extends Component {
                     <input type="text" name="firstTitle" id="firstTitle" value={this.state.data.firstTitle || ''} onChange={this.handleChange} className='form-control' />
 
                     <label htmlFor="firstDescription"> First Description  </label>
-                     <textarea rows="6" className='form-control' name="firstDescription" id="firstDescription" value={this.state.data.firstDescription} onChange={this.handleChange} />
+                     <textarea rows="6" className='form-control' name="firstDescription" id="firstDescription" value={this.state.data.firstDescription || ''} onChange={this.handleChange} />
                      </div>
 
                      <div className='col-12 col-lg-3 pt-5 pb-5 d-flex flex-column align-items-center d-lg-block' style={{height: "80vh", backgroundColor: "white", zIndex: "100"}}>
                      <label htmlFor="middleDescription"> Middle Description  </label>
-                     <textarea rows="6" className='form-control' name="middleDescription" id="middleDescription" value={this.state.data.middleDescription} onChange={this.handleChange} />
+                     <textarea rows="6" className='form-control' name="middleDescription" id="middleDescription" value={this.state.data.middleDescription || ''} onChange={this.handleChange} />
                      </div>
 
                      <div data-aos="fade-right" className='col-12 col-lg-3 pt-5 d-flex flex-column align-items-center d-lg-block ' style={{background: "#000", color: "#fff",height: "80vh"}}>
                      <label htmlFor="secondTitle"> Second Title  </label>
-                     <input type="text" className='form-control' name="secondTitle" id="secondTitle" value={this.state.data.secondTitle} onChange={this.handleChange} />
+                     <input type="text" className='form-control' name="secondTitle" id="secondTitle" value={this.state.data.secondTitle || ''} onChange={this.handleChange} />
 
                      <label htmlFor="secondDescription"> Second Description  </label>
-                     <textarea rows="6" type="text" className='form-control' name="secondDescription" id="secondDescription" value={this.state.data.secondDescription} onChange={this.handleChange} />
+                     <textarea rows="6" type="text" className='form-control' name="secondDescription" id="secondDescription" value={this.state.data.secondDescription || ''} onChange={this.handleChange} />
                      </div>
                      <div className='col-12 d-none d-lg-block col-md-6 col-lg-3 px-0' style={{height: "80vh"}}>
                         <input type="file" className='form-control'  onChange={this.handleChange} />

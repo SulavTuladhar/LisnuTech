@@ -20,7 +20,7 @@ export class ThirdPage extends Component {
         this._isMounted = true;
         httpClient.GET('/page/third-page', true)
             .then(res=>{
-                if (this._isMounted) {
+                if(this._isMounted) {
                 this.setState({
                     contents: res.data
                 })

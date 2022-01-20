@@ -12,6 +12,8 @@ const defaultForm = {
 }
 
 export class EditSingleBlog extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = {
@@ -25,12 +27,17 @@ export class EditSingleBlog extends Component {
     }
 
     componentDidMount(){
+        this._isMounted = true;
+
         this.contentId = this.props.match.params['id'];
         httpClient.GET(`/blog/${this.contentId}`)
             .then(res=>{
+                if (this._isMounted) {
+
                 this.setState({
                     data: res.data
                 })
+            }
             })
             .catch(err=>{
                 handleError(err)
@@ -53,7 +60,9 @@ export class EditSingleBlog extends Component {
             }
         }))
     }
-
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
     onSubmit = e =>{
         e.preventDefault();
         this.setState({
@@ -94,17 +103,17 @@ export class EditSingleBlog extends Component {
                         </div>
                         <div className='col-12'>
                             <label htmlFor='title'> Title </label>
-                            <input type='text' name='title' id='title' value={this.state.data.title} onChange={this.handleChange} className='form-control' />
+                            <input type='text' name='title' id='title' value={this.state.data.title || ''} onChange={this.handleChange} className='form-control' />
                         </div>
 
                         <div className='col-12'>
                             <label htmlFor='description'> Description </label>
-                            <input type='text' name='description' id='description' value={this.state.data.description} onChange={this.handleChange} className='form-control' />
+                            <input type='text' name='description' id='description' value={this.state.data.description || ''} onChange={this.handleChange} className='form-control' />
                         </div>
 
                         <div className='col-12'>
                             <label htmlFor='content'> Content </label>
-                            <textarea cols={12} name='content' id='content' value={this.state.data.content} onChange={this.handleChange} className='form-control' />
+                            <textarea cols={12} name='content' id='content' value={this.state.data.content || ''} onChange={this.handleChange} className='form-control' />
                         </div>
                         
                         <div className='col-12 text-center'>

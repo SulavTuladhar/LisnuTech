@@ -16,6 +16,8 @@ const validationFields = {
 }
   
 export class EditSecondPage extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = {
@@ -27,15 +29,20 @@ export class EditSecondPage extends Component {
         }
     }
     componentDidMount(){
+        this._isMounted = true;
+
         this.productId = this.props.match.params['id'];
         httpClient.GET(`/page/second-pages/${this.productId}`, true)
         .then(res=>{
+            if (this._isMounted) {
+
             this.setState({
                 data: {
                     // ...defaultForm,
                     ...res.data
                 }
             })
+        }
         })
         .catch(err=>{
             handleError(err);
@@ -81,7 +88,9 @@ export class EditSecondPage extends Component {
                 })
             })
       }
-  
+      componentWillUnmount() {
+        this._isMounted = false;
+      }
     render() {
 
         return (
@@ -96,7 +105,7 @@ export class EditSecondPage extends Component {
                
 
                <label htmlFor="firstDescription"> First Description  </label>
-                <textarea rows="6" type="text" name="firstDescription" id="firstDescription" value={this.state.data.firstDescription} onChange={this.handleChange} className='form-control' />
+                <textarea rows="6" type="text" name="firstDescription" id="firstDescription" value={this.state.data.firstDescription || ''} onChange={this.handleChange} className='form-control' />
                 </div>
 
 
@@ -110,10 +119,10 @@ export class EditSecondPage extends Component {
             <div data-aos="fade-left" className='col-12 col-lg-3 d-flex d-lg-block flex-column align-items-center aside-img pt-5 ' style={{color: "#fff", background: "#000", height: "80vh"}}>
 
                 <label htmlFor="secondTitle"> Second Title  </label>
-                <input type="text" name="secondTitle" id="secondTitle" value={this.state.data.secondTitle} onChange={this.handleChange} className='form-control' />
+                <input type="text" name="secondTitle" id="secondTitle" value={this.state.data.secondTitle || ''} onChange={this.handleChange} className='form-control' />
 
                 <label htmlFor="secondDescription"> Second Description  </label>
-                <textarea rows='6' type="text" name="secondDescription" id="secondDescription" value={this.state.data.secondDescription} onChange={this.handleChange} className='form-control' />
+                <textarea rows='6' type="text" name="secondDescription" id="secondDescription" value={this.state.data.secondDescription || ''} onChange={this.handleChange} className='form-control' />
 
                 </div>
 

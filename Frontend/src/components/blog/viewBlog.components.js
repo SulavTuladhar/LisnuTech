@@ -5,6 +5,8 @@ import { Loader } from '../common/loader/loader.components';
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
 export class ViewBlog extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state ={
@@ -14,15 +16,20 @@ export class ViewBlog extends Component {
     }
 
     componentDidMount(){
+        this._isMounted = true;
+
         this.setState({
             isLoading: true
         })
         this.contentId = this.props.match.params['id'];
         httpClient.GET(`/blog/${this.contentId}`)
             .then(res=>{
+                if(this._isMounted) {
+
                 this.setState({
                     blog: res.data
                 })
+            }
             })
             .catch(err=>{
                 handleError(err)
@@ -33,7 +40,9 @@ export class ViewBlog extends Component {
                 })
             })
     }
-
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
     render() {
         let content = this.state.isLoading
             ? < Loader />

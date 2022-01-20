@@ -9,6 +9,8 @@ import './cssStye.css';
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
 export class Blog extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state ={
@@ -18,14 +20,20 @@ export class Blog extends Component {
     }
 
     componentDidMount(){
+        this._isMounted = true;
+
         this.setState({
             isLoading: true
         })
         httpClient.GET('/blog/', true)
             .then(res=>{
+                if(this._isMounted) {
+
                 this.setState({
                     blogs: res.data
                 })
+            }
+
             })
             .catch(err=>{
                 handleError(err)
@@ -55,7 +63,9 @@ export class Blog extends Component {
                 })
         }
     }
-
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
         render() {
             let content = this.state.isLoading
                 ? < Loader />

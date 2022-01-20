@@ -15,6 +15,8 @@ const validationFields = {
 }
   
 export class EditFifthPage extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = {
@@ -25,15 +27,20 @@ export class EditFifthPage extends Component {
         }
     }
     componentDidMount(){
+        this._isMounted = true;
+
         this.productId = this.props.match.params['id'];
         httpClient.GET(`/page/fifth-pages/${this.productId}`, true)
         .then(res=>{
+            if (this._isMounted) {
+
             this.setState({
                 data: {
                     // ...defaultForm,
                     ...res.data
                 }
             })
+        }
         })
         .catch(err=>{
             handleError(err);
@@ -80,7 +87,10 @@ export class EditFifthPage extends Component {
                 })
             })
       }
-  
+      componentWillUnmount() {
+        this._isMounted = false;
+      }
+
     render() {
 
         return (
@@ -93,7 +103,7 @@ export class EditFifthPage extends Component {
                <input type="text" className='form-control' name="title" id="title" value={this.state.data.title || ''} onChange={this.handleChange} />
                 
                <label htmlFor="description"> Description  </label>
-                <textarea rows="6" type="text" className='form-control' name="description" id="description" value={this.state.data.description} onChange={this.handleChange} />
+                <textarea rows="6" type="text" className='form-control' name="description" id="description" value={this.state.data.description || ''} onChange={this.handleChange} />
                 </div>
                 <div className='col-12 col-lg-7 pt-5 d-flex flex-column align-items-center d-lg-block'>
                      <h1> Our Team </h1>

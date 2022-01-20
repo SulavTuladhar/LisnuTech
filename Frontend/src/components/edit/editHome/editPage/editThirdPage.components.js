@@ -16,6 +16,8 @@ const validationFields = {
 }
   
 export class EditThirdPage extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = {
@@ -27,15 +29,19 @@ export class EditThirdPage extends Component {
         }
     }
     componentDidMount(){
+        this._isMounted = true;
+
         this.productId = this.props.match.params['id'];
         httpClient.GET(`/page/third-pages/${this.productId}`, true)
         .then(res=>{
+            if(this._isMounted) {
             this.setState({
                 data: {
                     // ...defaultForm,
                     ...res.data
                 }
             })
+        }
         })
         .catch(err=>{
             handleError(err);
@@ -82,6 +88,10 @@ export class EditThirdPage extends Component {
                 })
             })
       }
+      componentWillUnmount() {
+          this._isMounted = false;
+        }
+  
   
     render() {
 
@@ -103,7 +113,7 @@ export class EditThirdPage extends Component {
                <input type="text" name="title" id="title" value={this.state.data.title || ''} onChange={this.handleChange} className='form-control' />
                <br />
                <label htmlFor="description"> Description  </label> <br />
-                <textarea rows="8" type="text" name="description" id="description" value={this.state.data.description} onChange={this.handleChange} className='form-control' />
+                <textarea rows="8" type="text" name="description" id="description" value={this.state.data.description || ''} onChange={this.handleChange} className='form-control' />
                </div>
 
               <button className='btn btn-primary mb-5 mt-2' style={{width: "20vw", height: "6vh"}}> Submit </button>

@@ -6,6 +6,8 @@ import { notify } from '../../utils/toaster';
 import { Loader } from '../common/loader/loader.components';
 
 export class GraphicsDesign extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = {
@@ -15,14 +17,19 @@ export class GraphicsDesign extends Component {
     }
 
     componentDidMount(){
+        this._isMounted = true;
+
         this.setState({
             isLoading: true
         })
         httpClient.GET('/graphicsDesign', true)
             .then(res=>{
+            if (this._isMounted) {
+
                 this.setState({
                     content: res.data
                 })
+            }
             })
             .catch(err=>{
                 handleError(err)
@@ -33,6 +40,10 @@ export class GraphicsDesign extends Component {
                 })
             })
     }
+    
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
 
     removeContent(id,index){
         const confirmation = window.confirm("Are you sure to remove ?");

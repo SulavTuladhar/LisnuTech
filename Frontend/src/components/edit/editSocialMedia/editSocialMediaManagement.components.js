@@ -14,6 +14,8 @@ const validationFields = {
 }
   
 export class EditSocialMeidaManagement extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = {
@@ -23,15 +25,21 @@ export class EditSocialMeidaManagement extends Component {
         }
     }
     componentDidMount(){
+        this._isMounted = true;
+
         this.contentId = this.props.match.params['id'];
         httpClient.GET(`/socialMedia/${this.contentId}`, true)
         .then(res=>{
+            if(this._isMounted) {
+
             this.setState({
+                
                 data: {
                     // ...defaultForm,
                     ...res.data
                 }
             })
+        }
         })
         .catch(err=>{
             handleError(err);
@@ -74,6 +82,9 @@ export class EditSocialMeidaManagement extends Component {
             })
       }
   
+      componentWillUnmount() {
+        this._isMounted = false;
+      }
     render() {
         return (
             <section section className='container-fluid' style={{height: '90vh', display: 'flex'}}>
@@ -85,12 +96,12 @@ export class EditSocialMeidaManagement extends Component {
                             </div>
                             <div className='col-12'>
                                 <label htmlFor='title'> Title </label>
-                                <input type='text' name='title' id='title' value={this.state.data.title} onChange={this.handleChange} className='form-control' />
+                                <input type='text' name='title' id='title' value={this.state.data.title || ''} onChange={this.handleChange} className='form-control' />
                             </div>
 
                             <div className='col-12'>
                                 <label htmlFor='description'> Description </label>
-                                <input type='description' name='description' id='description' value={this.state.data.description} onChange={this.handleChange} className='form-control' />
+                                <input type='description' name='description' id='description' value={this.state.data.description || ''} onChange={this.handleChange} className='form-control' />
                             </div>
                             <div className='col-12 text-center'>
                                 <button className='btn btn-primary mb-5 mt-2' style={{width: "14vw", height: '6vh'}}> Submit </button>

@@ -6,6 +6,8 @@ import { Loader } from '../../../common/loader/loader.components';
 const IMG_URL = process.env.REACT_APP_IMG_URL;
 
 export class FourthPage extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = ({
@@ -15,11 +17,16 @@ export class FourthPage extends Component {
     }
 
     componentDidMount(){
+        this._isMounted = true;
+
         httpClient.GET('/page/fourth-page', true)
             .then(res=>{
+            if (this._isMounted) {
+
                 this.setState({
                     contents: res.data
                 })
+            }
             })
             .catch(err=>{
                 handleError(err);
@@ -30,6 +37,10 @@ export class FourthPage extends Component {
                 })
             })
     }
+    
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
     render() {
 
         let content = this.state.isLoading
@@ -38,7 +49,7 @@ export class FourthPage extends Component {
                 {
                     (this.state.contents || []).map((product,index)=> (
                       this.props.dashboard
-                        ?   <section className='fourth-page container-fluid pt-2 mt-5'  style={{borderTop: "1px solid grey"}}>
+                        ?   <section className='fourth-page container-fluid pt-2 mt-5'  style={{borderTop: "1px solid grey"}} key={index}>
                                 <button className='btn btn-primary mb-2'> <Link to={`/fourthPage/${product._id}`} style={{color: "#fff"}}> edit </Link> </button>
                                 <div className='row' key={index}>
                                     <div className='col-12 col-lg-3 pt-5 pb-5 d-flex flex-column align-items-center d-lg-block' style={{background: "#000", color: "#fff",height: "80vh"}}>
@@ -62,7 +73,7 @@ export class FourthPage extends Component {
                                     </div>
                                 </div>
                             </section>
-                        :  <section className='fourth-page container-fluid'>
+                        :  <section className='fourth-page container-fluid' key={index}>
                                 <div className='row' key={index}>
                                     <div data-aos="fade-left" className='col-12 col-lg-3 pt-5 pb-5 d-flex flex-column align-items-center d-lg-block' style={{background: "#000", color: "#fff",height: "80vh"}}>
                                         <h1> {product.firstTitle} </h1>

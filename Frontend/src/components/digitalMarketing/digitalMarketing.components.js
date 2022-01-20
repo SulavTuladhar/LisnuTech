@@ -6,6 +6,8 @@ import { notify } from '../../utils/toaster';
 import { Loader } from '../common/loader/loader.components';
 
 export class DigitalMarketing extends Component {
+    _isMounted = false;
+
     constructor(){
         super();
         this.state = {
@@ -15,14 +17,19 @@ export class DigitalMarketing extends Component {
     }
 
     componentDidMount(){
+        this._isMounted = true;
+
         this.setState({
             isLoading: true
         })
         httpClient.GET('/digitalMarketing', true)
             .then(res=>{
+                if(this._isMounted) {
+
                 this.setState({
                     content: res.data
                 })
+            }
             })
             .catch(err=>{
                 handleError(err)
@@ -51,7 +58,9 @@ export class DigitalMarketing extends Component {
                 })
         }
     }
-
+    componentWillUnmount() {
+        this._isMounted = false;
+      }
     render() {
         let content = this.state.isLoading
             ? < Loader />
