@@ -20,7 +20,6 @@ router.route('/second-page')
 router.route('/second-pages/:id')
     .get(authenticate, secondPage.findById)
     .put(authenticate, uploader.single('img'), secondPage.update)
-
     
 router.route('/third-page')
     .get(ThirdPage.find)

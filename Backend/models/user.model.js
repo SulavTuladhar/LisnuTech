@@ -40,10 +40,12 @@ const UserSchema = new mongoose.Schema({
         enum:['admin', 'user']
     },
     image: String
-},
-    // timestamps
-    {
-        timestamps: true
+}, {
+    writeConcern: {
+       w: 'majority',
+       j: true,
+       wtimeout: 1000
     }
+}
 )
 module.exports = mongoose.model('user', UserSchema);

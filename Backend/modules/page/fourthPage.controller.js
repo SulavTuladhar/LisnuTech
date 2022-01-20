@@ -1,4 +1,4 @@
-const pageModel = require('../../models/pages/fourthPage.model');
+const pageModel = require('./../../models/pages/FourthPage.model');
 const fs = require('fs');
 const path = require('path');
 

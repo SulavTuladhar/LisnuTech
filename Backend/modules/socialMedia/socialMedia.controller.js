@@ -20,7 +20,7 @@ const insert = (req,res,next)=>{
     const data = req.body;
     // Prepare data
     if(req.file){
-        data.photo = req.file.filename;
+        data.image = req.file.filename;
     }
     const newContent = new socialMediaModel({});
     map_page_request(newContent,data);

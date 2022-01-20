@@ -51,7 +51,7 @@ router.route('/login')
     })
 
 router.route('/register')
-    .post(uploader.single('image'),function(req,res,next){
+    .post(uploader.single('img'),function(req,res,next){
         // console.log('Req body >>', req.body);
         // console.log('Req file >>', req.file);
         if(req.fileTypeError){
@@ -61,7 +61,7 @@ router.route('/register')
             })
         }
         if(req.file){
-            req.body.image = req.file.filename;
+            req.body.img = req.file.filename;
         }
 
         // CREATE
